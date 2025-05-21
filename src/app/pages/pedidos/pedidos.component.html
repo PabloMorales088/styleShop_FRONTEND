@@ -1,0 +1,33 @@
+<div class="main-content">
+    <h2 class="titulo-pedidos" *ngIf="pedidos.length > 0">PEDIDOS REALIZADOS</h2>
+  
+    <div *ngIf="pedidos.length === 0" class="pedidos-vacio">
+      <img src="assets/img/sin-pedidos.png" alt="Sin pedidos" class="imagen-vacia" />
+      <p class="texto-vacio">Aún no has realizado ningún pedido.<br>¡Explora nuestros productos y haz tu primer pedido!</p><br>
+      <a routerLink="/productos" class="btn-volver">¡COMPRA YA!</a>
+    </div>
+  
+    <div class="pedido-grid" *ngIf="pedidos.length > 0">
+      <div class="pedido" *ngFor="let pedido of pedidos">
+        <div class="cabecera">
+          <h3>PEDIDO #{{ pedido.id }}</h3>
+          <span class="estado" [ngClass]="pedido.estado.toLowerCase()">{{ pedido.estado }}</span>
+        </div>
+        <p class="fecha"> {{ pedido.fecha | date: 'short' }}</p>
+        <p class="total"> <b>PRECIO TOTAL:</b> {{ pedido.total | currency: 'EUR' }}</p>
+  
+        <div class="productos">
+          <div class="item" *ngFor="let d of pedido.detalles">
+            <img [src]="'http://localhost:8080/imagenes/' + d.imagen" alt="{{ d.nombreProducto }}" />
+            <div class="info">
+              <h3>{{ d.nombreProducto }}</h3>
+              <p><strong>Talla:</strong> {{ d.talla }}</p>
+              <p><strong>Cantidad:</strong> {{ d.cantidad }}</p>
+              <p><strong>Precio:</strong> {{ d.precio | currency: 'EUR' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

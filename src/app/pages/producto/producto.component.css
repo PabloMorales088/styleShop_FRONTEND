@@ -1,0 +1,154 @@
+:host {
+  display: block;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+/* Carrusel Hero */
+.hero-carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  border-radius: 1rem;
+}
+
+.texto-slide {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+
+.texto-slide h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2ecc71;
+  margin-bottom: 0.5rem;
+}
+
+.texto-slide p {
+  font-size: 1.3rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.texto-slide button {
+  padding: 0.8rem 1.6rem;
+  background-color: #2ecc71;
+  color: #111;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.texto-slide button:hover {
+  background-color: #27ae60;
+}
+
+/* Productos */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #27ae60;
+  padding: 0 3rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding: 0 3rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background-color: transparent;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #2ecc71;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.card .precio {
+  font-weight: bold;
+  color: #2ecc71;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-vermas {
+  background-color: transparent;
+  border: 1.5px solid #2ecc71;
+  color: #2ecc71;
+  padding: 0.5rem 1.3rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-vermas:hover {
+  background-color: #2ecc71;
+  color: #000;
+}

@@ -1,0 +1,11 @@
+<div class="register-container">
+  <h2>StyleShop</h2>
+  <form (ngSubmit)="registrar()">
+    <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre" required />
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Correo electrónico" required />
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required />
+    <button type="submit">Registrarse</button>
+  </form>
+  <p class="mensaje">{{ mensaje }}</p>
+  <a routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+</div>

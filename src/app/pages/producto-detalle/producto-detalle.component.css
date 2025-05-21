@@ -1,0 +1,117 @@
+:host {
+  display: block;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 3rem;
+  min-height: 100vh;
+}
+
+.producto-detalle {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detalle-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.imagen-container {
+  flex: 1 1 350px;
+  max-width: 500px;
+  background-color: #111;
+  border-radius: 1rem;
+  border-color: #2ecc71;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+
+.imagen-container img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 0.8rem;
+}
+
+.info-container {
+  flex: 1 1 400px;
+}
+
+.info-container h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.precio {
+  font-size: 1.5rem;
+  color: #2ecc71;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.talla-container {
+  margin-bottom: 2rem;
+}
+
+.talla-container label {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+select {
+  padding: 0.4rem 0.8rem;
+  background-color: #1a1a1a;
+  border: 1px solid #2ecc71;
+  color: #fff;
+  border-radius: 0.4rem;
+}
+
+.acciones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-carrito,
+.btn-favorito {
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: none;
+}
+
+.btn-carrito {
+  background-color: #2ecc71;
+  color: #111;
+}
+
+.btn-carrito:hover {
+  background-color: #27ae60;
+}
+
+.btn-favorito {
+  background-color: #111;
+  color: #e74c3c;
+  border: 1.5px solid #e74c3c;
+}
+
+.btn-favorito:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}

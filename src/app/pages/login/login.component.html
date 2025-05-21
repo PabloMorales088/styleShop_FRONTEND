@@ -1,0 +1,26 @@
+<div class="login-container">
+    <h2>StyleShop</h2>
+  
+    <form (ngSubmit)="iniciarSesion()">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Correo electrónico"
+        required
+      />
+      <input
+  type="password"
+  [(ngModel)]="password"
+  name="password"
+  placeholder="Contraseña"
+  required
+/>
+
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  
+    <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+    <a routerLink="/register">¿No tienes cuenta? Regístrate</a>
+  </div>
+  

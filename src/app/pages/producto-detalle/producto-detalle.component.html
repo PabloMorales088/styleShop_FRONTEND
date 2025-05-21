@@ -1,0 +1,26 @@
+  <div class="producto-detalle" *ngIf="producto">
+    <div class="detalle-wrapper">
+      <!-- Imagen del producto -->
+      <div class="imagen-container">
+        <img [src]="'http://localhost:8080/imagenes/' + producto.imagen" [alt]="producto.nombre" />
+      </div>
+
+      <!-- Info del producto -->
+      <div class="info-container">
+        <h1>{{ producto.nombre }}</h1>
+        <p class="precio">{{ producto.precio | currency: 'EUR' }}</p>
+        <p class="descripcion">{{ producto.descripcion }}</p>
+
+        <div class="talla-container">
+          <label for="talla">TALLA : </label>
+          <select id="talla">
+            <option>{{ producto.talla }}</option>
+          </select>
+        </div>
+
+        <div class="acciones">
+          <button class="btn-carrito" (click)="anadirAlCarrito()">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>

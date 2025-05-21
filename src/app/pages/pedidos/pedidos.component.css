@@ -1,0 +1,161 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .titulo-pedidos {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #2ecc71;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .pedidos-vacio {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .texto-vacio {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    color: #bbb;
+    max-width: 400px;
+  }
+  
+  .imagen-vacia {
+    margin-top: 50px;
+    max-width: 180px;
+    opacity: 0.8;
+    filter: grayscale(60%);
+  }
+  
+  .btn-volver {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: #111;
+    padding: 0.7rem 1.7rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-volver:hover {
+    background-color: #27ae60;
+  }
+  
+  .pedido-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .pedido {
+    background-color: #1c1c1c;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s;
+  }
+  
+  .pedido:hover {
+    transform: translateY(-3px);
+  }
+  
+  .cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+  
+  .estado {
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .estado.enviado {
+    background-color: #f1c40f;
+    color: #111;
+  }
+  
+  .estado.entregado {
+    background-color: #2ecc71;
+    color: #111;
+  }
+  
+  .fecha,
+  .total {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: #ccc;
+  }
+  
+  .productos {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .item {
+    display: flex;
+    gap: 1.5rem;
+    background-color: #1c1c1c;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #2ecc71;
+  }
+  
+  .item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid #2ecc71;
+  }
+  
+  .info {
+    flex: 1;
+  }
+  
+  .info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #2ecc71;
+  }
+  
+  .info p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #eee;
+  }
+  

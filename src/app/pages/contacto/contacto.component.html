@@ -1,0 +1,60 @@
+<div class="contacto-contenedor">
+    <h1 class="titulo">📞 Contáctanos</h1>
+    <p class="descripcion">
+      ¿Tienes preguntas? En <strong>StyleShop</strong> combinamos la comodidad de una tienda online con la confianza de una ubicación física.
+    </p><br><br>
+  
+    <div class="bloques">
+  
+      <div class="info">
+        <h2>Sobre nosotros</h2>
+        <p>
+          <strong>StyleShop</strong> es tu tienda de moda urbana desde 2023, con diseños exclusivos, enfoque sostenible y presencia física y online.
+          Descubre las últimas tendencias en nuestra tienda física en Sevilla o compra cómodamente desde casa.
+        </p><br><br>
+  
+        <h2>Información de contacto</h2>
+        <ul>
+          <li><strong>Dirección:</strong> Av. Eduardo Dato, Sn, 41020 Sevilla, España</li>
+          <li><strong>Teléfono:</strong> <a href="tel:+34955072071"> 955 072 071</a></li>
+          <li><strong>Email:</strong> <a href="mailto:styleShop@gmail.com">styleShop@gmail.com</a></li>
+          <li><strong>Horario:</strong> Lunes a Viernes, 9:00 - 18:00</li>
+        </ul>
+  
+        <br><h2>Cuéntanos tu experiencia</h2>
+        <form (ngSubmit)="enviarFeedback()" #form="ngForm" class="formulario-feedback">
+          <div class="campo">
+            <label for="nombre">NOMBRE</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="feedback.nombre" required />
+          </div>
+  
+          <div class="campo">
+            <label for="email">GÉNERO</label>
+            <input type="email" id="email" name="email" [(ngModel)]="feedback.email" required />
+          </div>
+  
+          <div class="campo">
+            <label for="mensaje">¿QUÉ OPINAS DE NUESTRA TIENDA?</label>
+            <textarea id="mensaje" name="mensaje" [(ngModel)]="feedback.mensaje" rows="4" required></textarea>
+          </div>
+  
+          <button type="submit" [disabled]="form.invalid">ENVIAR</button>
+          <p *ngIf="enviado" class="mensaje-enviado">Gracias por tu opinión, te agradecemos tu tiempo.</p>
+        </form>
+      </div>
+  
+      <div class="mapa">
+        <h2>🗺️ ¿Dónde estamos?</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.803113810807!2d-5.976993684688747!3d37.38264067983411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126d1b2a7c407d%3A0x1b8d4d39312e6a9a!2sCalle%20Futura%20123%2C%20Sevilla!5e0!3m2!1ses!2ses!4v1714996200000!5m2!1ses!2ses"
+          width="100%"
+          height="890"
+          style="border:0; border-radius: 12px"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+  

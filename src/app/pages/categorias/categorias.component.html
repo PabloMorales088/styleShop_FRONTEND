@@ -1,0 +1,18 @@
+<div class="contenedor-categorias">
+  <h2 *ngIf="categoriaSeleccionada">{{ categoriaSeleccionada.nombre | uppercase }}</h2>
+
+  <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
+  <div [ngClass]="{ 'grid-productos-3': isCategoriaEspecial, 'grid-productos-4': !isCategoriaEspecial }">
+    <div class="producto-card" *ngFor="let p of productos">
+      <div class="imagen-wrap">
+        <img [src]="'http://localhost:8080/imagenes/' + p.imagen" [alt]="p.nombre" />
+      </div>
+      <div class="info">
+        <h3>{{ p.nombre }}</h3>
+        <span class="precio">{{ p.precio | currency: 'EUR' }}</span>
+        <button (click)="verDetalle(p.id!)">Ver producto</button>
+      </div>
+    </div>
+  </div>
+</div>

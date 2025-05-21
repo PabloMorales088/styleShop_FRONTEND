@@ -18,7 +18,11 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "jquery": "^3.7.1",
+    "ngx-slick-carousel": "^15.0.0",
     "rxjs": "~7.8.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

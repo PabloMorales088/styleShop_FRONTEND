@@ -1,0 +1,29 @@
+<div class="main-content">
+
+  <h2 class="titulo-carrito" *ngIf="items.length > 0">CARRITO DE COMPRAS</h2>
+
+  <div *ngIf="items.length === 0" class="carrito-vacio">
+    <img src="assets/img/carrito-vacio.png" alt="Carrito vacío" class="imagen-vacia"><br>
+    <p class="texto-vacio">Tu carrito está vacío<br>¡Explora nuestros productos y encuentra tu estilo!</p><br>
+    <a routerLink="/productos" class="btn-volver">¡COMPRA YA!</a>
+  </div>
+
+  <div class="carrito-grid" *ngIf="items.length > 0">
+    <div class="item" *ngFor="let i of items">
+      <img [src]="'http://localhost:8080/imagenes/' + i.producto.imagen" alt="{{ i.producto.nombre }}">
+      <div class="info">
+        <h3>{{ i.producto.nombre }}</h3>
+        <p class="descripcion">{{ i.producto.descripcion }}</p>
+        <p><strong>Precio:</strong> {{ i.producto.precio | currency:'EUR' }}</p>
+        <p><strong>Talla:</strong> {{ i.carrito.talla }}</p>
+        <p><strong>Cantidad:</strong> {{ i.carrito.cantidad }}</p>
+        <button (click)="eliminar(i.carrito.id!)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="acciones-carrito" *ngIf="items.length > 0">
+    <button class="btn-confirmar" (click)="confirmarPedido()">Confirmar pedido</button>
+  </div>
+
+</div>

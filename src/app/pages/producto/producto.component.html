@@ -1,0 +1,28 @@
+<section class="hero-carousel">
+  <ngx-slick-carousel class="carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <img [src]="slide.imagen" [alt]="slide.titulo" />
+      <div class="texto-slide">
+        <h1>{{ slide.titulo }}</h1>
+        <p>{{ slide.subtitulo }}</p>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</section>
+
+<div class="section-title">RECIÉN LLEGADO A LA WEB...</div><BR> 
+
+<div class="grid">
+  <div class="card" *ngFor="let p of productos">
+    <div class="etiqueta">NEW!</div>
+    <img [src]="'http://localhost:8080/imagenes/' + p.imagen" [alt]="p.nombre" />
+    <h3>{{ p.nombre }}</h3>
+    <p class="precio">{{ p.precio | currency: 'EUR' }}</p>
+    <button 
+      class="btn-vermas" 
+      *ngIf="p.id !== undefined" 
+      (click)="verDetalle(p.id!); $event.stopPropagation()">
+      Ver más
+    </button>
+  </div>
+</div>

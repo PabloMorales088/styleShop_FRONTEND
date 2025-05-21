@@ -1,0 +1,131 @@
+.contacto-contenedor {
+    padding: 2rem 3rem;
+    background-color: #111;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .titulo {
+    font-size: 2.5rem;
+    color: #2ecc71;
+    margin-bottom: 0.5rem;
+  }
+  
+  .descripcion {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  
+  .bloques {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .info {
+    flex: 1 1 400px;
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  }
+  
+  .info h2 {
+    color: #2ecc71;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info p, .info li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  
+  .info ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .info a {
+    text-decoration: none;
+  }
+  
+  .btn-contactar {
+    
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #27ae60;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  
+  .btn-contactar:hover {
+    background-color: #27ae60;
+  }
+  
+  .mapa {
+    flex: 1 1 600px;
+  }
+  
+  .mapa h2 {
+    color: #2ecc71;
+    margin-bottom: 1rem;
+  }
+  
+
+  .formulario-feedback {
+    margin-top: 2rem;
+    background-color: #111;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+  }
+  
+  .formulario-feedback .campo {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formulario-feedback label {
+    font-weight: bold;
+    color: #2ecc71;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formulario-feedback input,
+  .formulario-feedback textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #2ecc71;
+    color: white;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+  }
+  
+  .formulario-feedback button {
+    background-color: #2ecc71;
+    color: black;
+    font-weight: bold;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formulario-feedback button:hover {
+    background-color: #27ae60;
+  }
+  
+  .mensaje-enviado {
+    color: #2ecc71;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
