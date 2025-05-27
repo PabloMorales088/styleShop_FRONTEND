@@ -1,6 +1,6 @@
-// src/app/services/producto.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export interface Producto {
   id?: number;
@@ -13,11 +13,9 @@ export interface Producto {
   categoriaId: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ProductoService {
-  private apiUrl = 'http://localhost:8080/api/productos';
+  private apiUrl = `${environment.apiUrl}/api/productos`;
 
   constructor(private http: HttpClient) {}
 
