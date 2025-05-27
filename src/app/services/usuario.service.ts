@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Usuario {
@@ -15,18 +15,12 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  registrar(usuario: Usuario): Observable<HttpResponse<any>> {
-    return this.http.post(`${this.apiUrl}/auth/registro`, usuario, {
-      observe: 'response',
-      responseType: 'text' as 'json'
-    });
+  registrar(usuario: Usuario): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/registro`, usuario);
   }
 
-  login(usuario: Usuario): Observable<HttpResponse<any>> {
-    return this.http.post(`${this.apiUrl}/auth/login`, usuario, {
-      observe: 'response',
-      responseType: 'text' as 'json'
-    });
+  login(usuario: Usuario): Observable<{ token: string }> {
+    return this.http.post<{ token: string }>(`${this.apiUrl}/auth/login`, usuario);
   }
 
   obtenerPorEmail(email: string): Observable<Usuario> {

@@ -15,7 +15,7 @@ export class ContactoComponent {
   enviado = false;
 
   enviarFeedback(): void {
-    console.log('📝 Feedback enviado:', this.feedback);
+    console.log('Feedback enviado:', this.feedback);
     this.enviado = true;
 
     setTimeout(() => {

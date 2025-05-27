@@ -1,0 +1,11 @@
+<div class="usuario-container" *ngIf="userEmail">
+  <div class="usuario-icono" (click)="toggleMenu()">
+    <i class="fas fa-user-circle"></i>
+  </div>
+
+  <div class="usuario-menu" *ngIf="mostrarMenu">
+    <p class="usuario-email">{{ userEmail }}</p>
+    <button (click)="irAPedidos()">Mis pedidos</button>
+    <button (click)="logout()">Cerrar sesión</button>
+  </div>
+</div>

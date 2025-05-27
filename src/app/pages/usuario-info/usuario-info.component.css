@@ -1,0 +1,55 @@
+.usuario-container {
+  position: relative;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.usuario-icono i {
+  font-size: 1.7rem;
+  color: #2ecc71;
+  transition: transform 0.2s;
+}
+
+.usuario-icono:hover i {
+  transform: scale(1.1);
+}
+
+.usuario-menu {
+  position: absolute;
+  top: 2.2rem;
+  right: 0;
+  background-color: #111;
+  border: 1px solid #2ecc71;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 180px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.usuario-menu p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  word-break: break-word;
+}
+
+.usuario-menu button {
+  background-color: #2ecc71;
+  color: #111;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  margin: 0.2rem 0;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.usuario-menu button:hover {
+  background-color: #27ae60;
+  color: white;
+}

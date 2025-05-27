@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   categorias: Categoria[] = [];
   mostrarCategorias = false;
   cantidadCarrito = 0;
+  userEmail: string | null = null;
 
   constructor(
     private router: Router,
@@ -22,6 +23,8 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.userEmail = localStorage.getItem('userEmail');
+
     this.categoriaService.listarCategorias().subscribe(data => {
       this.categorias = data;
     });
@@ -58,7 +61,12 @@ export class NavbarComponent implements OnInit {
   }
 
   irPedidos(): void {
-    this.router.navigate(['/pedidos']);
+    const token = localStorage.getItem('jwt');
+    if (!token) {
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/pedidos']);
+    }
   }
 
   verCategoria(id: number): void {

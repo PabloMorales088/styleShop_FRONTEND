@@ -59,8 +59,8 @@ export class CategoriasComponent implements OnInit {
         cantidad: 1,
         talla: 'M'
       }).subscribe({
-        next: () => this.mensaje = '🛒 Producto añadido al carrito',
-        error: () => this.mensaje = '❌ Error al añadir al carrito'
+        next: () => this.mensaje = 'Añadido con éxito',
+        error: () => this.mensaje = 'Error al añadir al carrito'
       });
     });
   }

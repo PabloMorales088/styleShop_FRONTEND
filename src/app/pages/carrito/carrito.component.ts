@@ -18,6 +18,12 @@ interface CarritoItemExtendido {
 })
 export class CarritoComponent implements OnInit {
   items: CarritoItemExtendido[] = [];
+  mensajeExito: string | null = null;
+  mostrarPasarela = false;
+  totalAPagar = 0;
+  metodoPago: 'tarjeta' | 'paypal' = 'tarjeta';
+  procesando = false;
+  pagoExitoso = false;
 
   constructor(
     private carritoService: CarritoService,
@@ -52,7 +58,38 @@ export class CarritoComponent implements OnInit {
     });
   }
 
-  confirmarPedido(): void {
+  abrirPasarela(): void {
+    this.totalAPagar = this.items.reduce((total, item) =>
+      total + item.producto.precio * item.carrito.cantidad, 0
+    );
+    this.mostrarPasarela = true;
+    this.metodoPago = 'tarjeta';
+    this.pagoExitoso = false;
+  }
+
+  cerrarPasarela(): void {
+    this.mostrarPasarela = false;
+    this.procesando = false;
+  }
+
+  seleccionarMetodo(metodo: 'tarjeta' | 'paypal'): void {
+    this.metodoPago = metodo;
+  }
+
+  confirmarPagoSimulado(): void {
+    this.procesando = true;
+
+    setTimeout(() => {
+      this.procesando = false;
+      this.pagoExitoso = true;
+
+      setTimeout(() => {
+        this.finalizarPedido();
+      }, 1800);
+    }, 2000);
+  }
+
+  finalizarPedido(): void {
     const email = localStorage.getItem('userEmail');
     if (!email) {
       this.router.navigate(['/login']);
@@ -62,12 +99,16 @@ export class CarritoComponent implements OnInit {
     this.usuarioService.obtenerPorEmail(email).subscribe(usuario => {
       this.pedidoService.confirmarPedido(usuario.id!).subscribe({
         next: (mensaje: string) => {
-          alert(mensaje);
+          this.mensajeExito = 'Pago exitoso. ' + mensaje;
           this.items = [];
+          this.mostrarPasarela = false;
+
+          setTimeout(() => {
+            this.mensajeExito = null;
+          }, 4000);
         },
         error: err => {
-          console.error('Error del backend:', err);
-          alert('Error al confirmar pedido: ' + (err.error || 'Error desconocido'));
+          alert('Error al confirmar pedido: ' + (err.error || 'Desconocido'));
         }
       });
     });

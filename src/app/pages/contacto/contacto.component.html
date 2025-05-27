@@ -22,7 +22,7 @@
         </ul>
   
         <br><h2>Cuéntanos tu experiencia</h2>
-        <form (ngSubmit)="enviarFeedback()" #form="ngForm" class="formulario-feedback">
+        <form (ngSubmit)="enviarFeedback()" #form="ngForm" class="formulario">
           <div class="campo">
             <label for="nombre">NOMBRE</label>
             <input type="text" id="nombre" name="nombre" [(ngModel)]="feedback.nombre" required />

@@ -13,7 +13,6 @@
           {{ categoria.nombre }}
         </li>
       </ul>
-    
     </li>
   </ul>
 
@@ -21,7 +20,6 @@
     <i class="fas fa-phone" (click)="irContacto()"></i>
 
     <div class="pedidos-icono" (click)="irPedidos()">
-      
       <i class="fas fa-box-open"></i>
     </div>
 
@@ -29,5 +27,7 @@
       <i class="fas fa-shopping-cart"></i>
       <span *ngIf="cantidadCarrito > 0" class="contador">{{ cantidadCarrito }}</span>
     </div>
+
+    <app-usuario-info></app-usuario-info>
   </div>
 </nav>

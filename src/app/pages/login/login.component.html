@@ -1,26 +1,35 @@
-<div class="login-container">
-    <h2>StyleShop</h2>
-  
-    <form (ngSubmit)="iniciarSesion()">
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Correo electrónico"
-        required
-      />
-      <input
-  type="password"
-  [(ngModel)]="password"
-  name="password"
-  placeholder="Contraseña"
-  required
-/>
+<div class="auth-container login-container">
+  <div class="auth-box">
+    <h1 class="logo"><span>Style</span>Shop</h1>
+    <h2 class="auth-title">Iniciar Sesión</h2>
 
-      <button type="submit">Iniciar sesión</button>
+    <form (ngSubmit)="iniciarSesion()">
+      <div class="form">
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form">
+        <input
+          type="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn-primary">INICIAR</button>
     </form>
-  
+
     <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
-    <a routerLink="/register">¿No tienes cuenta? Regístrate</a>
+
+    <p class="switch-auth">
+      ¿No tienes cuenta?
+      <a routerLink="/register">Regístrate</a>
+    </p>
   </div>
-  
+</div>

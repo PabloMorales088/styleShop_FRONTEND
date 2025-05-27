@@ -1,5 +1,9 @@
 <div class="main-content">
 
+  <div *ngIf="mensajeExito" class="toast-exito">
+    <p>{{ mensajeExito }}</p>
+  </div>
+
   <h2 class="titulo-carrito" *ngIf="items.length > 0">CARRITO DE COMPRAS</h2>
 
   <div *ngIf="items.length === 0" class="carrito-vacio">
@@ -23,7 +27,34 @@
   </div>
 
   <div class="acciones-carrito" *ngIf="items.length > 0">
-    <button class="btn-confirmar" (click)="confirmarPedido()">Confirmar pedido</button>
+    <button class="btn-confirmar" (click)="abrirPasarela()">Pagar ahora</button>
+  </div>
+
+
+  <div class="modal-pago" *ngIf="mostrarPasarela">
+    <div class="modal-pago-contenido">
+      <h2>SAFE PAY</h2>
+      <p>TOTAL: <strong>{{ totalAPagar | currency:'EUR' }}</strong></p>
+
+      <div class="metodos">
+        <button [ngClass]="{ activo: metodoPago === 'tarjeta' }" (click)="seleccionarMetodo('tarjeta')">Tarjeta</button>
+        <button [ngClass]="{ activo: metodoPago === 'paypal' }" (click)="seleccionarMetodo('paypal')">PayPal</button>
+      </div>
+
+      <div *ngIf="metodoPago === 'tarjeta'" class="formulario-pago">
+        <input type="text" placeholder="Número de tarjeta" maxlength="19">
+        <input type="text" placeholder="MM/AA" maxlength="5">
+        <input type="text" placeholder="CVC" maxlength="3">
+      </div>
+
+      <div *ngIf="procesando" class="procesando">Procesando pago...</div>
+      <div *ngIf="pagoExitoso" class="exito">¡Pago realizado con éxito!</div>
+
+      <div class="acciones">
+        <button class="btn-confirmar" (click)="confirmarPagoSimulado()" [disabled]="procesando">Confirmar pago</button>
+        <button class="btn-cancelar" (click)="cerrarPasarela()" [disabled]="procesando">Cancelar</button>
+      </div>
+    </div>
   </div>
 
 </div>

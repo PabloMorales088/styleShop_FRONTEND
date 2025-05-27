@@ -1,44 +1,39 @@
 <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section brand">
-        <h2>Style<span>Shop</span></h2>
-        <p>Tu destino de moda urbana con estilo. Confort, tendencia y calidad.</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-x-twitter"></i></a>
-        </div>
-      </div>
-  
-      <div class="footer-section links">
-        <h3>Enlaces</h3>
-        <ul>
-         
-          <li><a routerLink="/carrito">Mi carrito</a></li>
-          <li><a routerLink="/login">Iniciar sesión</a></li>
-          <li><a routerLink="/register">Crear cuenta</a></li>
-        </ul>
-      </div>
-      
-  
-      <div class="footer-section contacto">
-        <h3>Contáctanos</h3>
-        <p><i class="fas fa-phone"></i>  955 072 071</p>
-        <p><i class="fas fa-map-marker-alt"></i>  Sevilla, España</p>
-        <p><i class="fas fa-clock"></i>  L-V 9:00 - 18:00</p>
+  <div class="footer-content">
+    <div class="footer-section brand">
+      <h2>Style<span>Shop</span></h2>
+      <p>Tu destino de moda urbana con estilo. Confort, tendencia y calidad.</p>
+      <div class="icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
-  
-    <div class="footer-bottom">
-      <p>&copy; 2025 <span>StyleShop</span> | Todos los derechos reservados.</p>
-      <p class="desarrollador">
-        Web desarrollada por 
-        <a href="https://github.com/PabloMorales088" target="_blank" >
-          Pablo Morales de los Santos
-        </a>
-      </p>
-      
+
+    <div class="footer-section links">
+      <h3>Enlaces</h3>
+      <ul>
+        <li><a routerLink="/carrito">Mi carrito</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/login">Iniciar sesión</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/register">Crear cuenta</a></li>
+        <li *ngIf="isLoggedIn">
+          <a (click)="logout()" class="enlace-footer">Cerrar sesión</a>
+        </li>
+      </ul>
     </div>
-    
-  </footer>
-  
+
+    <div class="footer-section contacto">
+      <h3>Contáctanos</h3>
+      <p><i class="fas fa-phone"></i> 955 072 071</p>
+      <p><i class="fas fa-map-marker-alt"></i> Sevilla, España</p>
+      <p><i class="fas fa-clock"></i> L-V 9:00 - 18:00</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 <span>StyleShop</span> | Todos los derechos reservados.</p>
+    <p class="desarrollador">
+      Web desarrollada por <a href="https://github.com/PabloMorales088" target="_blank">Pablo Morales de los Santos</a>
+    </p>
+  </div>
+</footer>

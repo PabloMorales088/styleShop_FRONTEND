@@ -6,7 +6,6 @@
   min-height: 100vh;
 }
 
-/* Carrusel Hero */
 .hero-carousel {
   margin-bottom: 4rem;
 }
@@ -71,7 +70,6 @@
   background-color: #27ae60;
 }
 
-/* Productos */
 .section-title {
   font-size: 2.2rem;
   font-weight: bold;

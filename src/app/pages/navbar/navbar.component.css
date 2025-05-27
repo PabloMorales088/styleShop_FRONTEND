@@ -21,7 +21,6 @@
   transform: scale(1.05);
 }
 
-/* Links principales */
 .nav-links {
   list-style: none;
   display: flex;
@@ -48,7 +47,6 @@
   border-bottom: 2px solid #2ecc71;
 }
 
-/* Dropdown */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -73,7 +71,6 @@
   color: black;
 }
 
-/* Iconos a la derecha */
 .iconos-derecha {
   display: flex;
   align-items: center;
@@ -91,7 +88,6 @@
   color: #2ecc71;
 }
 
-/* Carrito y contador */
 .carrito-icono {
   position: relative;
 }
@@ -127,3 +123,16 @@
 .pedidos-icono i:hover {
   color: #2ecc71;
 }
+
+
+
+.usuario-logueado {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #2ecc71;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+

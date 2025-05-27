@@ -2,7 +2,7 @@
     <h2 class="titulo-pedidos" *ngIf="pedidos.length > 0">PEDIDOS REALIZADOS</h2>
   
     <div *ngIf="pedidos.length === 0" class="pedidos-vacio">
-      <img src="assets/img/sin-pedidos.png" alt="Sin pedidos" class="imagen-vacia" />
+      <img src="assets/img/sin-pedidos.png"  class="imagen-vacia" />
       <p class="texto-vacio">Aún no has realizado ningún pedido.<br>¡Explora nuestros productos y haz tu primer pedido!</p><br>
       <a routerLink="/productos" class="btn-volver">¡COMPRA YA!</a>
     </div>
@@ -10,7 +10,7 @@
     <div class="pedido-grid" *ngIf="pedidos.length > 0">
       <div class="pedido" *ngFor="let pedido of pedidos">
         <div class="cabecera">
-          <h3>PEDIDO #{{ pedido.id }}</h3>
+          <h3>NÚM. REF. #{{ pedido.id }}</h3>
           <span class="estado" [ngClass]="pedido.estado.toLowerCase()">{{ pedido.estado }}</span>
         </div>
         <p class="fecha"> {{ pedido.fecha | date: 'short' }}</p>

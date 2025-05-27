@@ -151,3 +151,124 @@
   background-color: #27ae60;
   transform: scale(1.05);
 }
+
+.toast-exito {
+  background-color: #2ecc71;
+  color: #111;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  margin: 1rem auto 2rem;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  animation: fadeInOut 4s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* NUEVO: Modal de pago simulado */
+.modal-pago {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-pago-contenido {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: 1px solid #2ecc71;
+  color: #fff;
+  width: 90%;
+  max-width: 400px;
+  animation: fadeIn 0.3s ease;
+}
+
+.metodos {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.metodos button {
+  background-color: #1c1c1c;
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.metodos button.activo {
+  background-color: #2ecc71;
+  color: #111;
+}
+
+.formulario-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.formulario-pago input {
+  padding: 0.6rem;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.procesando {
+  margin: 1rem 0;
+  font-style: italic;
+  color: #f1c40f;
+}
+
+.exito {
+  margin: 1rem 0;
+  font-weight: bold;
+  color: #2ecc71;
+  font-size: 1.2rem;
+}
+
+.acciones {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.btn-cancelar {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-cancelar:hover {
+  background-color: #c0392b;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -20,7 +20,7 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     }).subscribe({
-      next: (res: any) => {
+      next: (res) => {
         const token = res.token;
         if (token) {
           localStorage.setItem('jwt', token);

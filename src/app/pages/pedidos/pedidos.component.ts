@@ -18,7 +18,7 @@ export class PedidosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('jwt'); // <-- CORREGIDO
     if (!token) {
       this.router.navigate(['/login']);
       return;
