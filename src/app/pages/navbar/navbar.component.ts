@@ -10,10 +10,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  categorias: Categoria[] = [];
-  mostrarCategorias = false;
-  cantidadCarrito = 0;
-  userEmail: string | null = null;
+  categorias: Categoria[] = []; // Lista de categorías para el menú desplegable
+  mostrarCategorias = false; // Controla la visibilidad del dropdown
+  cantidadCarrito = 0; // Total de ítems en el carrito
+  userEmail: string | null = null; // Email del usuario autenticado
 
   constructor(
     private router: Router,
@@ -23,17 +23,22 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Obtiene el email del usuario desde localStorage si está logueado
     this.userEmail = localStorage.getItem('userEmail');
 
+    // Carga las categorías para el menú desplegable
     this.categoriaService.listarCategorias().subscribe(data => {
       this.categorias = data;
     });
 
+    // Si hay usuario logueado, obtiene su ID y actualiza el contador del carrito
     const email = localStorage.getItem('userEmail');
     if (email) {
       this.usuarioService.obtenerPorEmail(email).subscribe(usuario => {
         if (usuario.id !== undefined) {
           this.actualizarContador(usuario.id);
+
+          // Se suscribe al observable emitido cuando el carrito cambia (agrega, elimina, etc.)
           this.carritoService.carritoActualizado$.subscribe(() => {
             this.actualizarContador(usuario.id!);
           });
@@ -42,12 +47,14 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  // Calcula el total de ítems en el carrito sumando cantidades de cada entrada
   private actualizarContador(usuarioId: number): void {
     this.carritoService.obtenerCarrito(usuarioId).subscribe(items => {
       this.cantidadCarrito = items.reduce((acc, item) => acc + item.cantidad, 0);
     });
   }
 
+  // Redirige a distintas vistas usando el router
   goToInicio(): void {
     this.router.navigate(['/productos']);
   }
@@ -69,6 +76,7 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  // Al hacer clic en una categoría se navega y se oculta el menú desplegable
   verCategoria(id: number): void {
     this.router.navigate(['/categorias', id]);
     this.mostrarCategorias = false;

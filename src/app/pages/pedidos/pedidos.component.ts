@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent implements OnInit {
+  // Lista de pedidos que se mostrará en la vista
   pedidos: Pedido[] = [];
 
   constructor(
@@ -18,18 +19,23 @@ export class PedidosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const token = localStorage.getItem('jwt'); // <-- CORREGIDO
+    // Verificamos si el usuario está autenticado comprobando si hay token JWT
+    const token = localStorage.getItem('jwt'); // <- CORREGIDO para usar la clave correcta
     if (!token) {
+      // Si no hay token, redirigimos al login
       this.router.navigate(['/login']);
       return;
     }
 
+    // Obtenemos el email del usuario almacenado en localStorage
     const email = localStorage.getItem('userEmail');
     if (!email) return;
 
+    // Obtenemos el objeto usuario por email y luego sus pedidos
     this.usuarioService.obtenerPorEmail(email).subscribe(usuario => {
+      // Llamamos al servicio de pedidos para obtener los pedidos del usuario por su ID
       this.pedidoService.obtenerPedidosPorUsuario(usuario.id!).subscribe(data => {
-        this.pedidos = data;
+        this.pedidos = data; // Guardamos los pedidos para renderizarlos
       });
     });
   }

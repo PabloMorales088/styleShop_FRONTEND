@@ -1,16 +1,27 @@
 <div class="contenedor-categorias">
+  <!-- Título en mayúsculas con el nombre de la categoría seleccionada -->
   <h2 *ngIf="categoriaSeleccionada">{{ categoriaSeleccionada.nombre | uppercase }}</h2>
 
+  <!-- Muestra un mensaje (por ejemplo, "No hay productos") si está definido -->
   <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
 
+  <!-- Grid adaptable: usa distinta cantidad de columnas si la categoría es "especial" -->
   <div [ngClass]="{ 'grid-productos-3': isCategoriaEspecial, 'grid-productos-4': !isCategoriaEspecial }">
+    
+    <!-- Recorre y muestra cada producto de la lista -->
     <div class="producto-card" *ngFor="let p of productos">
+      
+      <!-- Imagen del producto -->
       <div class="imagen-wrap">
         <img [src]="'http://localhost:8080/imagenes/' + p.imagen" [alt]="p.nombre" />
       </div>
+
+      <!-- Detalles del producto -->
       <div class="info">
         <h3>{{ p.nombre }}</h3>
         <span class="precio">{{ p.precio | currency: 'EUR' }}</span>
+
+        <!-- Botón para ir al detalle del producto -->
         <button (click)="verDetalle(p.id!)">Ver producto</button>
       </div>
     </div>

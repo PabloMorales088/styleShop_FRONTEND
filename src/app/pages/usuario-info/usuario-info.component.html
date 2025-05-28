@@ -1,11 +1,23 @@
+<!-- Contenedor principal del componente de información de usuario -->
+<!-- Solo se muestra si hay un usuario logueado (es decir, existe un 'userEmail') -->
 <div class="usuario-container" *ngIf="userEmail">
+
+  <!-- Icono de usuario que, al hacer clic, muestra u oculta el menú -->
   <div class="usuario-icono" (click)="toggleMenu()">
-    <i class="fas fa-user-circle"></i>
+    <i class="fas fa-user-circle"></i> <!-- Ícono de usuario (font awesome) -->
   </div>
 
+  <!-- Menú desplegable que aparece al hacer clic en el icono -->
+  <!-- Se muestra solo si 'mostrarMenu' es true -->
   <div class="usuario-menu" *ngIf="mostrarMenu">
+    
+    <!-- Muestra el email del usuario autenticado -->
     <p class="usuario-email">{{ userEmail }}</p>
+
+    <!-- Botón para redirigir a la vista de pedidos -->
     <button (click)="irAPedidos()">Mis pedidos</button>
+
+    <!-- Botón para cerrar sesión y limpiar datos de sesión -->
     <button (click)="logout()">Cerrar sesión</button>
   </div>
 </div>

@@ -1,26 +1,39 @@
-  <div class="producto-detalle" *ngIf="producto">
-    <div class="detalle-wrapper">
-      <!-- Imagen del producto -->
-      <div class="imagen-container">
-        <img [src]="'http://localhost:8080/imagenes/' + producto.imagen" [alt]="producto.nombre" />
+<!-- Contenedor principal, se muestra solo si existe un producto cargado -->
+<div class="producto-detalle" *ngIf="producto">
+
+  <!-- Agrupador visual de imagen + info -->
+  <div class="detalle-wrapper">
+
+    <!-- Sección de la imagen del producto -->
+    <div class="imagen-container">
+      <!-- La imagen se construye dinámicamente con la URL base y el nombre de archivo -->
+      <img [src]="'http://localhost:8080/imagenes/' + producto.imagen" [alt]="producto.nombre" />
+    </div>
+
+    <!-- Sección de la información del producto -->
+    <div class="info-container">
+      <!-- Título del producto -->
+      <h1>{{ producto.nombre }}</h1>
+
+      <!-- Precio formateado como moneda en EUR -->
+      <p class="precio">{{ producto.precio | currency: 'EUR' }}</p>
+
+      <!-- Descripción general -->
+      <p class="descripcion">{{ producto.descripcion }}</p>
+
+      <!-- Selección de talla (aunque solo muestra una opción fija desde el producto) -->
+      <div class="talla-container">
+        <label for="talla">TALLA : </label>
+        <select id="talla">
+          <option>{{ producto.talla }}</option> <!-- Aquí se podría mejorar para mostrar múltiples tallas -->
+        </select>
       </div>
 
-      <!-- Info del producto -->
-      <div class="info-container">
-        <h1>{{ producto.nombre }}</h1>
-        <p class="precio">{{ producto.precio | currency: 'EUR' }}</p>
-        <p class="descripcion">{{ producto.descripcion }}</p>
-
-        <div class="talla-container">
-          <label for="talla">TALLA : </label>
-          <select id="talla">
-            <option>{{ producto.talla }}</option>
-          </select>
-        </div>
-
-        <div class="acciones">
-          <button class="btn-carrito" (click)="anadirAlCarrito()">Añadir al carrito</button>
-        </div>
+      <!-- Botón para añadir el producto al carrito -->
+      <div class="acciones">
+        <button class="btn-carrito" (click)="anadirAlCarrito()">Añadir al carrito</button>
       </div>
     </div>
+
   </div>
+</div>

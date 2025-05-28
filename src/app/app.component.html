@@ -1,7 +1,15 @@
+<!-- Punto de anclaje donde Angular inyecta los componentes según la ruta activa -->
 <router-outlet></router-outlet>
 
+<!-- Snackbar (toast) personalizado que aparece si 'mostrarToast' es true -->
 <div class="snackbar" *ngIf="mostrarToast">
+  
+  <!-- Ícono de éxito con Font Awesome -->
   <i class="fas fa-check-circle"></i>
+
+  <!-- Mensaje dinámico mostrado al usuario -->
   {{ mensajeToast }}
+
+  <!-- Botón para cerrar el toast manualmente -->
   <span class="cerrar-toast" (click)="cerrarToast()">×</span>
 </div>

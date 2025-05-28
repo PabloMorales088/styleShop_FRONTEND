@@ -172,7 +172,6 @@
   100% { opacity: 0; transform: translateY(-20px); }
 }
 
-/* NUEVO: Modal de pago simulado */
 .modal-pago {
   position: fixed;
   inset: 0;

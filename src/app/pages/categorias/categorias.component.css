@@ -26,40 +26,21 @@
   display: inline-block;
 }
 
-/* NUEVOS GRID DINÁMICOS */
 
-/* Para categoría especial (id = 1) */
 .grid-productos-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
 }
 
-/* Para el resto */
 .grid-productos-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .grid-productos-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-productos-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 600px) {
-  .grid-productos-3,
-  .grid-productos-4 {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* ESTILO DE TARJETA */
 .producto-card {
   background-color: #121212;
   border-radius: 1rem;

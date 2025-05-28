@@ -5,11 +5,14 @@ import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' }) // Servicio inyectable a nivel global
 export class CarritoService {
   private apiUrl = `${environment.apiUrl}/api/carrito`;
 
+  // Emisor de eventos para actualizar el contador del carrito
   carritoActualizado$ = new Subject<void>();
+
+  // Emisor de mensajes tipo "toast"
   toastNotificacion$ = new Subject<string>();
 
   constructor(private http: HttpClient) {}
@@ -21,8 +24,8 @@ export class CarritoService {
   agregarAlCarrito(dto: CarritoDTO) {
     return this.http.post<CarritoDTO>(this.apiUrl, dto).pipe(
       tap(() => {
-        this.toastNotificacion$.next('Producto añadido al carrito');
-        this.carritoActualizado$.next();
+        this.toastNotificacion$.next('Producto añadido al carrito'); // Notificación al usuario
+        this.carritoActualizado$.next(); // Actualiza íconos/contador
       })
     );
   }

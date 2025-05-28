@@ -33,7 +33,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     RegisterComponent,
     CategoriasComponent,
     ProductoDetalleComponent,
-    ProductosComponent, // CORREGIDO
+    ProductosComponent, 
     ContactoComponent,
     UsuarioInfoComponent,
     LayoutComponent
@@ -43,8 +43,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,           // NECESARIO para router-outlet
-    SlickCarouselModule     // NECESARIO para carousel
+    RouterModule,           
+    SlickCarouselModule     
   ],
   providers: [
     {
