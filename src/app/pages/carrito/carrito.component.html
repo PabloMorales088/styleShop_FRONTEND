@@ -1,27 +1,20 @@
 <div class="main-content">
-
-  <!-- Mensaje de éxito estilo toast -->
   <div *ngIf="mensajeExito" class="toast-exito">
     <p>{{ mensajeExito }}</p>
   </div>
 
-  <!-- Título del carrito, solo visible si hay productos -->
   <h2 class="titulo-carrito" *ngIf="items.length > 0">CARRITO DE COMPRAS</h2>
 
-  <!-- Mensaje y llamada a la acción cuando el carrito está vacío -->
   <div *ngIf="items.length === 0" class="carrito-vacio">
-    <img src="assets/img/carrito-vacio.png" alt="Carrito vacío" class="imagen-vacia"><br>
-    <p class="texto-vacio">Tu carrito está vacío<br>¡Explora nuestros productos y encuentra tu estilo!</p><br>
+    <img src="assets/img/carrito-vacio.png" alt="Carrito vacío" class="imagen-vacia">
+    <p class="texto-vacio">Tu carrito está vacío<br>¡Explora nuestros productos y encuentra tu estilo!</p>
     <a routerLink="/productos" class="btn-volver">¡COMPRA YA!</a>
   </div>
 
-  <!-- Listado de ítems en el carrito -->
   <div class="carrito-grid" *ngIf="items.length > 0">
     <div class="item" *ngFor="let i of items">
-      <!-- Imagen del producto -->
       <img [src]="'http://localhost:8080/imagenes/' + i.producto.imagen" alt="{{ i.producto.nombre }}">
-      
-      <!-- Información del producto -->
+
       <div class="info">
         <h3>{{ i.producto.nombre }}</h3>
         <p class="descripcion">{{ i.producto.descripcion }}</p>
@@ -29,46 +22,38 @@
         <p><strong>Talla:</strong> {{ i.carrito.talla }}</p>
         <p><strong>Cantidad:</strong> {{ i.carrito.cantidad }}</p>
         
-        <!-- Botón para eliminar ítem del carrito -->
         <button (click)="eliminar(i.carrito.id!)">Eliminar</button>
       </div>
     </div>
   </div>
 
-  <!-- Botón de pago visible si hay productos en el carrito -->
   <div class="acciones-carrito" *ngIf="items.length > 0">
     <button class="btn-confirmar" (click)="abrirPasarela()">Pagar ahora</button>
   </div>
 
-  <!-- Modal de pasarela de pago (simulada) -->
   <div class="modal-pago" *ngIf="mostrarPasarela">
     <div class="modal-pago-contenido">
       <h2>SAFE PAY</h2>
       <p>TOTAL: <strong>{{ totalAPagar | currency:'EUR' }}</strong></p>
 
-      <!-- Selección de método de pago -->
       <div class="metodos">
         <button [ngClass]="{ activo: metodoPago === 'tarjeta' }" (click)="seleccionarMetodo('tarjeta')">Tarjeta</button>
         <button [ngClass]="{ activo: metodoPago === 'paypal' }" (click)="seleccionarMetodo('paypal')">PayPal</button>
       </div>
 
-      <!-- Formulario visible solo si se elige "tarjeta" -->
       <div *ngIf="metodoPago === 'tarjeta'" class="formulario-pago">
         <input type="text" placeholder="Número de tarjeta" maxlength="19">
         <input type="text" placeholder="MM/AA" maxlength="5">
         <input type="text" placeholder="CVC" maxlength="3">
       </div>
 
-      <!-- Indicadores de estado del pago -->
       <div *ngIf="procesando" class="procesando">Procesando pago...</div>
       <div *ngIf="pagoExitoso" class="exito">¡Pago realizado con éxito!</div>
 
-      <!-- Acciones de la pasarela -->
       <div class="acciones">
         <button class="btn-confirmar" (click)="confirmarPagoSimulado()" [disabled]="procesando">Confirmar pago</button>
         <button class="btn-cancelar" (click)="cerrarPasarela()" [disabled]="procesando">Cancelar</button>
       </div>
     </div>
   </div>
-
 </div>

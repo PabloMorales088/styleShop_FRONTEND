@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ProductoService, Producto } from 'src/app/services/producto.service';
 import { CategoriaService, Categoria } from 'src/app/services/categoria.service';
@@ -104,3 +105,5 @@ export class ProductosComponent implements OnInit {
     });
   }
 }
+
+

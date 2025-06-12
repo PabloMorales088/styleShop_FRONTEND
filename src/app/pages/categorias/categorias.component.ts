@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService, Categoria } from 'src/app/services/categoria.service';
@@ -10,11 +11,12 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './categorias.component.html',
   styleUrls: ['./categorias.component.css']
 })
+
 export class CategoriasComponent implements OnInit {
   categoriaSeleccionada: Categoria | null = null;
   productos: Producto[] = [];
   mensaje = '';
-  isCategoriaEspecial = false; // Cambia el diseño de grilla si es una categoría especial (ej: ID 1)
+  isCategoriaEspecial = false; 
 
   constructor(
     private route: ActivatedRoute,
@@ -71,3 +73,6 @@ export class CategoriasComponent implements OnInit {
     });
   }
 }
+
+
+

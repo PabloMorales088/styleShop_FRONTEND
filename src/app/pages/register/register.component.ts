@@ -29,7 +29,7 @@ export class RegisterComponent {
         this.router.navigate(['/login']);
       },
       error: err => {
-        this.mensaje = typeof err.error === 'string' ? err.error : 'Error al registrar';
+        this.mensaje = typeof err.error === 'string' ? err.error : 'ERROR AL REGISTRARSE';
       }
     });
   }

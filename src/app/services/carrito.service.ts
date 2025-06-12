@@ -24,8 +24,8 @@ export class CarritoService {
   agregarAlCarrito(dto: CarritoDTO) {
     return this.http.post<CarritoDTO>(this.apiUrl, dto).pipe(
       tap(() => {
-        this.toastNotificacion$.next('Producto añadido al carrito'); // Notificación al usuario
-        this.carritoActualizado$.next(); // Actualiza íconos/contador
+        this.toastNotificacion$.next('Producto añadido al carrito'); // Notifi al usuario
+        this.carritoActualizado$.next(); // Actualiza iconos/contador
       })
     );
   }

@@ -1,7 +1,6 @@
 <div class="auth-container login-container">
   <div class="auth-box">
 
-    <!-- Logotipo y título -->
     <h1 class="logo"><span>Style</span>Shop</h1>
     <h2 class="auth-title">Iniciar Sesión</h2>
 
@@ -33,10 +32,9 @@
       <button type="submit" class="btn-primary">INICIAR</button>
     </form>
 
-    <!-- Mensaje de error o estado (condicional) -->
+    <!-- Mensaje de error o estado  -->
 <p class="mensaje error" *ngIf="mensaje">{{ mensaje }}</p>
 
-    <!-- Enlace alternativo para registro -->
     <p class="switch-auth">
       ¿No tienes cuenta?
       <a routerLink="/register">Regístrate</a>

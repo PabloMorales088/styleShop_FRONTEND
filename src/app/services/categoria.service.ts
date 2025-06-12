@@ -13,7 +13,7 @@ export interface Categoria {
 export class CategoriaService {
   private API_URL = `${environment.apiUrl}/api/categorias`; // Ruta base para las peticiones
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {} // -> Para hacer las peticiones HTTP POST/PUT ...
 
   // Obtener lista completa de categorías
   listarCategorias(): Observable<Categoria[]> {

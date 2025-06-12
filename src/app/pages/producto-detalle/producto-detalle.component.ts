@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoService, Producto } from 'src/app/services/producto.service';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -10,53 +10,49 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./producto-detalle.component.css']
 })
 export class ProductoDetalleComponent implements OnInit {
-  // Objeto que representa al producto actual
   producto: Producto | null = null;
-
-  // Talla seleccionada por defecto
   tallaSeleccionada: string = 'M';
-
-  // Mensaje informativo para el usuario (éxito o error)
   mensaje = '';
 
   constructor(
-    private route: ActivatedRoute, // Para obtener el ID del producto de la URL
-    private productoService: ProductoService, // Para obtener los datos del producto
-    private carritoService: CarritoService, // Para añadir al carrito
-    private usuarioService: UsuarioService // Para identificar al usuario actual
+    private route: ActivatedRoute,
+    private router: Router,
+    private productoService: ProductoService,
+    private carritoService: CarritoService,
+    private usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
-    // Extraemos el ID del producto desde la URL
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (!id) return;
 
-    // Pedimos al backend los datos del producto
     this.productoService.obtenerPorId(id).subscribe({
       next: data => this.producto = data,
       error: err => console.error('Producto no encontrado', err)
     });
   }
 
-  // Método para añadir el producto actual al carrito
   anadirAlCarrito() {
     const email = localStorage.getItem('userEmail');
 
-    // Si el usuario no ha iniciado sesión o no hay producto cargado
-    if (!email || !this.producto) {
+    if (!email) {
       this.mensaje = 'Debes iniciar sesión para añadir al carrito';
+      this.router.navigate(['/login']); // Redirección automática al login
       return;
     }
 
-    // Obtenemos los datos del usuario por su email
+    if (!this.producto) {
+      this.mensaje = 'Error: No se puede añadir un producto inexistente';
+      return;
+    }
+
     this.usuarioService.obtenerPorEmail(email).subscribe({
       next: usuario => {
-        // Enviamos la solicitud al backend para agregar el producto al carrito
         this.carritoService.agregarAlCarrito({
-          usuarioId: usuario.id!, // usamos el ID del usuario
-          productoId: this.producto!.id!, // ID del producto actual
-          cantidad: 1, // cantidad fija por defecto
-          talla: this.tallaSeleccionada // talla seleccionada por el usuario
+          usuarioId: usuario.id!,
+          productoId: this.producto!.id!,
+          cantidad: 1,
+          talla: this.tallaSeleccionada
         }).subscribe({
           next: () => this.mensaje = '🛒 Producto añadido al carrito',
           error: err => {

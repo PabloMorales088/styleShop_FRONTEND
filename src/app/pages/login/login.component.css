@@ -109,8 +109,7 @@
 
 
 .mensaje.error {
-  color: #e74c3c; 
+  color: #ff4d4d; 
   margin-top: 1rem;
-  font-size: 0.9rem;
-  text-align: center;
+  font-weight: 500;
 }
